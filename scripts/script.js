@@ -63,7 +63,9 @@ document.getElementById("plusMinus").addEventListener("click", () => {
     display.value = currentNumber;
 });
 
-// ... (resto del código)
+document.getElementById('modeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
 
 equals.addEventListener('click', () => {
     calculate();
@@ -92,7 +94,6 @@ function calculate() {
         previousNumber = '';
     }
 }
-
 
 document.addEventListener('keydown', (event) => {
     const key = event.key; // obtener la tecla presionada
@@ -123,11 +124,9 @@ document.addEventListener('keydown', (event) => {
             equals.click();
         } else if (key.toLowerCase() === 'c') { // si la tecla es 'c', simular un click en el botón de limpiar
             clear.click();
-        } else if (key === 'Backspace') { // si la tecla es Backspace, borrar el último carácter
+        } else if (key === 'Backspace') { 
             currentNumber = currentNumber.slice(0, -1);
             display.value = currentNumber;
         }
     }
 });
-
-
